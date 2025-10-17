@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angry Bird Mini</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hud">
+        <div class="title">Angry Bird Runner</div>
+        <div class="score">Điểm: <span id="score">0</span></div>
+        <div class="buttons">
+            <button id="resetBtn">Chơi lại</button>
+            <button id="nextBtn">Bắt đầu</button>
+        </div>
+    </div>
+
+    <canvas id="game"></canvas>
+
+    <div class="help">Nhấn Bắt đầu, sau đó Space/Chuột để bay. Tránh chướng ngại vật!</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+
