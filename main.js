@@ -208,18 +208,37 @@
     window.addEventListener('mousedown', flap);
     window.addEventListener('touchstart', function (e) { e.preventDefault(); flap(); }, { passive: false });
 
-    // Buttons
-    document.getElementById('resetBtn').addEventListener('click', function () {
+    // Buttons - Add both click and touch events for mobile compatibility
+    function handleReset() {
         state = 'start';
         document.querySelector('.help').textContent = 'Nhấn Bắt đầu, sau đó Space/Chuột để bay.';
         setScore(0);
         spawnBird();
         resetObstacles();
-    });
-    document.getElementById('nextBtn').addEventListener('click', function () {
+    }
+    
+    function handleStart() {
         if (state === 'play') return; // avoid double start
         startGame();
-    });
+    }
+    
+    const resetBtn = document.getElementById('resetBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    // Add click events
+    resetBtn.addEventListener('click', handleReset);
+    nextBtn.addEventListener('click', handleStart);
+    
+    // Add touch events for mobile
+    resetBtn.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        handleReset();
+    }, { passive: false });
+    
+    nextBtn.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        handleStart();
+    }, { passive: false });
 
     // Resize
     function onResize() {
